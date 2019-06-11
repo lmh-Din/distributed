@@ -4,22 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.distributed</groupId>
-		<artifactId>distributedServer</artifactId>
+		<artifactId>seata</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../seata/pom.xml</relativePath>
 	</parent>
 	<groupId>com.distributed</groupId>
-	<artifactId>eureka-server</artifactId>
+	<artifactId>seata-account</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eureka-server</name>
+	<name>seata-account</name>
 	<description>Demo project for Spring Boot</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>
-
-	</dependencies>
 
 </project>

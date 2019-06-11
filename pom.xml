@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.distributed</groupId>
-	<artifactId>distributedserver</artifactId>
+	<artifactId>distributedServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>distributedServer</name>
@@ -10,16 +10,45 @@
 	<properties>
 		<jdk.version>1.8</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring-cloud.version>2.1.5.RELEASE</spring-cloud.version>
+		<eureka-server.version>2.0.2.RELEASE</eureka-server.version>
 	</properties>
     <!--?此处标识的包表示可能会被子项目引用，子项目引用以下包时，不需要标注version，方便进行管理-->
 	<dependencyManagement>
 		<dependencies>
+			<!--spring boot dependcy managent-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!--spring cloud dependcy managent-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+				<version>${eureka-server.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
 
     <!--?此处依赖的包会被子项目直接引用-->
     <dependencies>
+		<!--springBoot dependency-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--敏捷开发 dependency-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -60,6 +89,11 @@
 		</resources>
 		<plugins>
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<configuration>
@@ -78,10 +112,10 @@
 					<!--?<encode>${project.build.sourceEncoding}</encode>-->
 				</configuration>
 			</plugin>
-			<plugin>	<!-- 该插件的主要功能是进行项目的打包发布处理 -->
+			<!--<plugin>	&lt;!&ndash; 该插件的主要功能是进行项目的打包发布处理 &ndash;&gt;
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>	<!-- 设置程序执行的主类 -->
+				<configuration>	&lt;!&ndash; 设置程序执行的主类 &ndash;&gt;
 					<mainClass>cn.mldn.microboot.StartSpringBootMain</mainClass>
 				</configuration>
 				<executions>
@@ -91,7 +125,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 		</plugins>
 	</build>
 	<modules>
