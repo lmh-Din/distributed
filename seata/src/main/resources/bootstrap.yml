@@ -4,15 +4,18 @@ storage:
     url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf8
     username: root
     password: root
+    type: com.alibaba.druid.pool.DruidDataSource
 account:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf8
     username: root
     password: root
+    type: com.alibaba.druid.pool.DruidDataSource
 order:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf8
     username: root
     password: root
+    type: com.alibaba.druid.pool.DruidDataSource
